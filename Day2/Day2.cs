@@ -5,7 +5,7 @@ int total = 0;
 PartOne(lines, total);
 PartTwo(lines, total);
 
-static void PartOne(string[] lines, int total)
+void PartOne(string[] lines, int total)
 {
     foreach (var line in lines)
     {
