@@ -15,7 +15,7 @@ for (char letter = 'A'; letter <= 'Z'; letter++)
 
 string[] lines = System.IO.File.ReadAllLines("./input.txt");
 PartOne(lines);
-
+PartTwo(lines);
 
 void PartOne(string[] lines)
 {
@@ -45,3 +45,32 @@ void PartOne(string[] lines)
     System.Console.WriteLine(total);
 }
 
+void PartTwo(string[] lines)
+{
+    Console.WriteLine("\nPart two");
+    int total = 0;
+    int count = 0;
+    List<string> tempStrings = new();
+
+    foreach (var line in lines)
+    {
+        tempStrings.Add(line);
+        count++;
+        if (count == 3)
+        {
+            foreach (var item in tempStrings[0])
+            {
+                if (tempStrings[1].Contains(item) && tempStrings[2].Contains(item))
+                {
+                    total += alpha[item];
+                    break;
+                }
+            }
+
+            count = 0;
+            tempStrings = new();
+        }
+
+    }
+    Console.WriteLine(total);
+}
